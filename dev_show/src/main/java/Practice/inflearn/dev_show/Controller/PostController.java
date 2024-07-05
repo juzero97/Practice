@@ -2,11 +2,14 @@ package Practice.inflearn.dev_show.Controller;
 
 import Practice.inflearn.dev_show.PostCreate;
 import Practice.inflearn.dev_show.Response.PostResponse;
+import Practice.inflearn.dev_show.Response.PostSearch;
 import Practice.inflearn.dev_show.Service.PostService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -24,5 +27,12 @@ public class PostController {
     public PostResponse get(@PathVariable Long postId) {
         return postService.get(postId);
     }
+
+    @GetMapping("/posts")
+    public List<PostResponse> getList(@ModelAttribute PostSearch postSearch) {
+        return postService.getList(postSearch);
+    }
+
+
 
    }
