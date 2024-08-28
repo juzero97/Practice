@@ -1,9 +1,11 @@
 package Practice.inflearn.dev_show.domain;
 
+
 import jakarta.persistence.*;
-import lombok.*;
-
-
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Entity
@@ -25,13 +27,13 @@ public class Post {
         this.content = content;
     }
 
-    public com.hodolog.api.domain.PostEditor.PostEditorBuilder toEditor() {
-        return com.hodolog.api.domain.PostEditor.builder()
+    public PostEditor.PostEditorBuilder toEditor() {
+        return PostEditor.builder()
                 .title(title)
                 .content(content);
     }
 
-    public void edit(com.hodolog.api.domain.PostEditor postEditor) {
+    public void edit(PostEditor postEditor) {
         title = postEditor.getTitle();
         content = postEditor.getContent();
     }

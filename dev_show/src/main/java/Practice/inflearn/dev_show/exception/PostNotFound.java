@@ -1,5 +1,7 @@
 package Practice.inflearn.dev_show.exception;
 
+import Practice.inflearn.dev_show.exception.HodologException;
+
 /**
  * status -> 404
  */
