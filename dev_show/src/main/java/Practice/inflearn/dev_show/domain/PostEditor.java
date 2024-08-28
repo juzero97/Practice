@@ -1,19 +1,16 @@
-package Practice.inflearn.dev_show.Response;
+package Practice.inflearn.dev_show.domain;
+
 import lombok.Builder;
 import lombok.Getter;
 
-
-
 @Getter
-public class PostResponse {
+public class PostEditor {
 
-    private final Long id;
     private final String title;
     private final String content;
 
     @Builder
-    public PostResponse(Long id, String title, String content) {
-        this.id = id;
+    public PostEditor(String title, String content) {
         this.title = title;
         this.content = content;
     }

@@ -1,4 +1,4 @@
-package Practice.inflearn.dev_show;
+package Practice.inflearn.dev_show.request;
 
 
 import jakarta.validation.constraints.NotBlank;
@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class PostCreate {
+public class PostEdit {
 
     @NotBlank(message = "타이틀을 입력하세요.")
     private String title;
@@ -19,7 +19,7 @@ public class PostCreate {
     private String content;
 
     @Builder
-    public PostCreate(String title, String content) {
+    public PostEdit(String title, String content) {
         this.title = title;
         this.content = content;
     }

@@ -1,4 +1,4 @@
-package Practice.inflearn.dev_show.Response;
+package Practice.inflearn.dev_show.request;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package Practice.inflearn.dev_show.Config;
+package Practice.inflearn.dev_show.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
@@ -16,5 +16,4 @@ public class QueryDslConfig {
     public JPAQueryFactory jpaQueryFactory() {
         return new JPAQueryFactory(em);
     }
-
 }

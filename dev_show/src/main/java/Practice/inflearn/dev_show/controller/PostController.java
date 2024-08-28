@@ -1,15 +1,18 @@
-package Practice.inflearn.dev_show.Controller;
+package Practice.inflearn.dev_show.controller;
 
-import Practice.inflearn.dev_show.PostCreate;
-import Practice.inflearn.dev_show.Response.PostResponse;
-import Practice.inflearn.dev_show.Response.PostSearch;
-import Practice.inflearn.dev_show.Service.PostService;
+
+import Practice.inflearn.dev_show.request.PostCreate;
+import Practice.inflearn.dev_show.request.PostEdit;
+import Practice.inflearn.dev_show.request.PostSearch;
+import Practice.inflearn.dev_show.response.PostResponse;
+import Practice.inflearn.dev_show.service.PostService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @Slf4j
 @RestController
@@ -20,6 +23,7 @@ public class PostController {
 
     @PostMapping("/posts")
     public void post(@RequestBody @Valid PostCreate request) {
+        request.validate();
         postService.write(request);
     }
 
@@ -33,6 +37,25 @@ public class PostController {
         return postService.getList(postSearch);
     }
 
+    @PatchMapping("/posts/{postId}")
+    public void edit(@PathVariable Long postId, @RequestBody @Valid PostEdit request) {
+        postService.edit(postId, request);
+    }
+
+    @DeleteMapping("/posts/{postId}")
+    public void delete(@PathVariable Long postId) {
+        postService.delete(postId);
+    }
+}
 
 
-   }
+
+
+
+
+
+
+
+
+
+
